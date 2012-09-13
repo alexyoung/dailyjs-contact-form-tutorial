@@ -1,0 +1,8 @@
+- if (typeof notice !== 'undefined')
+  .alert=notice
+- if (typeof error !== 'undefined')
+  .alert.alert-error=error
+    - if (typeof errors !== 'undefined')
+      ul.errors
+        - for (var err in errors)
+          li=errors[err]

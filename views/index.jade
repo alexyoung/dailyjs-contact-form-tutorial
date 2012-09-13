@@ -1,0 +1,21 @@
+extends layout
+block content
+  h2 Say Hello
+
+  include messages
+
+  form(action='/contact', method='post')
+    input(type='hidden', name='_csrf', value=token)
+    .control-group
+      label.control-label(for='message_name') Your Name
+      .controls
+        input#message_name.input-xxlarge(type='text', placeholder='Name', name='message[name]', value=message.name)
+    .control-group
+      label.control-label(for='message_email') Email
+      .controls
+        input#message_email.input-xxlarge(type='text', placeholder='Email', name='message[email]', value=message.email)
+    .control-group
+      label.control-label(for='message_message') Message
+      .controls
+        textarea#message_message.input-xxlarge(placeholder='Enter message', rows='6', name='message[message]')=message.message
+    button.btn(type='submit') Send Message
